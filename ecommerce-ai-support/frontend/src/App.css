@@ -1,0 +1,14 @@
+import React from 'react';
+
+export default {
+  root: '#00d084',
+  gray: '#f3f4f6',
+  lightGray: '#e5e7eb',
+  darkGray: '#374151',
+  textDark: '#1f2937',
+  textLight: '#6b7280',
+  error: '#ef4444',
+  warning: '#f59e0b',
+  success: '#10b981',
+  info: '#3b82f6'
+};
