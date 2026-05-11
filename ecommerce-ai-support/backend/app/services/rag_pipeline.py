@@ -97,7 +97,11 @@ class RAGSystem:
         """Generate response using templates"""
         
         templates = {
-            "order_status": lambda: f"Based on your order: {order_data.get('status', 'pending')}. Your tracking number is {order_data.get('tracking_number', 'N/A')}. Expected delivery: {order_data.get('expected_delivery', 'To be updated')}.",
+            "order_status": lambda: (
+                f"Your order status is: {order_data.get('status', 'N/A')}. Tracking: {order_data.get('tracking_number', 'N/A')}. Expected delivery: {order_data.get('expected_delivery', 'To be updated')}."
+                if order_data else
+                "To check your order status, please provide your Order ID (e.g. ORD-12345) and I'll look it up for you right away."
+            ),
             "return": lambda: "We'd be happy to help with a return. Our return policy allows 30 days for returns in original condition. Please provide your order number and reason for return.",
             "shipping": lambda: "Shipping information: Standard delivery takes 5-7 business days, Express takes 2-3 days. " + context,
             "payment": lambda: "For payment-related inquiries, please provide your order number. Our billing team will assist you.",
